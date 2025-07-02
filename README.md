@@ -4,6 +4,8 @@ A clean and responsive **Analog Clock** built with **HTML**, **CSS**, and **Java
 
 ![Analog Clock Screenshot](Analog-clock/Screenshot.png)
 
+---
+
 ## 🚀 Features
 - Real-time analog clock  
 - Smooth hand movement  
@@ -18,8 +20,8 @@ A clean and responsive **Analog Clock** built with **HTML**, **CSS**, and **Java
 ## 📁 Structure
 Analog-Clock/ ├── index.html ├── style.css └── script.js
 
-## 📷 Live Preview
-[Live Demo](https://your-live-demo-link.com) *(optional)*
+## Go and Run it 
+with liveserver
 
 ## ✨ Usage
 ```git clone https://github.com/YALDAKHOSHPEY/Analog-Clock.git```
