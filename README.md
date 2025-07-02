@@ -2,7 +2,7 @@
 
 A clean and responsive **Analog Clock** built with **HTML**, **CSS**, and **JavaScript**.
 
-![Analog Clock Screenshot](.images/screenshot.png)
+![Analog Clock Screenshot](Analog-clock/Screenshot.png)
 
 ## 🚀 Features
 - Real-time analog clock  
