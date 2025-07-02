@@ -26,15 +26,16 @@ with liveserver
 ## ✨ Usage
 ```git clone https://github.com/YALDAKHOSHPEY/Analog-Clock.git```
 
----
 
 Open index.html in your browser and enjoy!
-💡 Improvements
+##💡 Improvements
+
 Dark/Light mode toggle
 Digital time display
 Canvas/SVG rendering
 Time zone support
-🙌 Author
+
+##🙌 Author
 Made with ❤️ by Yalda Khoshpey (https://github.com/YALDAKHOSHPEY)
 📄 License
 Open-source under the MIT License
