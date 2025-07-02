@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analog Clock with Navigation and Footer</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('./old.jpg');
+            background-size: cover;
+        }
+        nav {
+            width: 100%;
+            background-color: #333;
+            color: white;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+        nav .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 10px;
+        }
+        nav .logo {
+            flex: 1;
+            text-align: left;
+        }
+        nav ul {
+            display: flex;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            flex: 2;
+            justify-content: center;
+        }
+        nav ul li {
+            padding: 14px 20px;
+        }
+        nav ul li:hover {
+            background-color: #555;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .hamburger {
+            display: none;
+            flex: 1;
+            text-align: right;
+        }
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 5px;
+        }
+        .clock-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .clock-face {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            border: 2px solid black;
+            border-radius: 50%;
+            background: url('./download.jpg') no-repeat center/cover;
+        }
+        .dot {
+            position: absolute;
+            background-color: black;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .needle {
+            transform-origin: bottom center;
+            position: absolute;
+            left: 50%;
+            bottom: 50%;
+        }
+        #hour {
+            width: 10px;
+            height: 140px;
+            background-color: black;
+            transform: rotate(0deg);
+        }
+        #minute {
+            width: 6px;
+            height: 180px;
+            background-color: black;
+            transform: rotate(0deg);
+        }
+        #second {
+            width: 4px;
+            height: 200px;
+            background-color: red;
+            transform: rotate(0deg);
+        }
+        @keyframes rotateHour {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes rotateMinute {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes rotateSecond {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        .button-container {
+            position: absolute;
+            top: 610px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .button-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(228, 134, 67, 0);
+            color: rgb(203, 93, 10);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .button-container button:hover {
+            background-color: darkorange;
+        }
+        footer {
+            width: 100%;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            padding: 10px 0;
+        }
+        .pendulum {
+            position: absolute;
+            bottom: -140px;
+            width: 50%;
+            height: 50%;
+            background-image: url('./—Pngtree—vector\ 3d\ pendulum\ clock_17330188.png'); /* مسیر تصویر پاندول خود را وارد کنید */
+            background-size: contain;
+            background-repeat: no-repeat;
+            left: 25%;
+            z-index: -1;
+            transform-origin: top center;
+            animation: swing 2s infinite ease-in-out;
+            display: none;
+        }
+        @keyframes swing {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(20deg); }
+        }
+        .clock-face:hover .pendulum {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="login.html">Log In</a></li>
+            <li><a href="index.html">About</a></li>
+            <li><a href="index.html">Contact</a></li>
+        </ul>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </nav>
+    <div class="clock-container">
+        <div class="clock-face">
+            <div class="needle short" id="hour"></div>
+            <div class="needle medium" id="minute"></div>
+            <div class="needle long" id="second"></div>
+            <div class="dot"></div>
+            <div class="pendulum" id="pendulum"></div>
+        </div>
+        <div class="button-container">
+            <button onclick="toggleSound()">Clock Sound Toggle</button>
+        </div>
+    </div>
+    <audio id="tickSound" src="./clock-tick-76039.mp3"></audio>
+    <footer>
+        <p>&copy; 2025 Twinz. All rights reserved.</p>
+    </footer>
+    <script>
+        let soundEnabled = true;
+        const tickSound = document.getElementById('tickSound');
+
+        function toggleSound() {
+            soundEnabled = !soundEnabled;
+            if (soundEnabled) {
+                tickSound.play();
+            } else {
+                tickSound.pause();
+            }
+        }
+
+        function rotateClockHands() {
+            const now = new Date();
+            const hour = now.getHours();
+            const minute = now.getMinutes();
+            const second = now.getSeconds();
+
+            const hourRotation = (hour % 12) * 30 + minute * 0.5;
+            const minuteRotation = minute * 6 + second * 0.1;
+            const secondRotation = second * 6;
+
+            document.getElementById('hour').style.transform = 'rotate(' + hourRotation + 'deg)';
+            document.getElementById('minute').style.transform = 'rotate(' + minuteRotation + 'deg)';
+            document.getElementById('second').style.transform = 'rotate(' + secondRotation + 'deg)';
+
+            if (soundEnabled) {
+                tickSound.currentTime = 0;
+                tickSound.play();
+            }
+        }
+
+        setInterval(rotateClockHands, 1000);
+
+        function toggleMenu() { const navUl = document.querySelector('nav ul'); if (navUl.style.display === 'flex') { navUl.style.display = 'none'; } else { navUl.style.display = 'flex'; navUl.style.flexDirection = 'column'; navUl.style.position = 'absolute'; navUl.style.top = '50px'; navUl.style.width = '100%'; navUl.style.backgroundColor = '#333'; } }
+    </script>
+</body>
+</html>

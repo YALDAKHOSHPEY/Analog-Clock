@@ -1,0 +1,159 @@
+/*static 300px x 300px of dimensions*/
+body {
+    background: tan;
+    padding: 10px 0;
+    background-color: tan;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPgo8cmFkaWFsR3JhZGllbnQgaWQ9Imc4MjciIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiBjeD0iNTAlIiBjeT0iMCUiIHI9Ijc1JSI+CjxzdG9wIHN0b3AtY29sb3I9IiNkMmQ0OGMiIG9mZnNldD0iMCIvPjxzdG9wIHN0b3AtY29sb3I9IiNkMmI0OGMiIG9mZnNldD0iMSIvPgo8L3JhZGlhbEdyYWRpZW50Pgo8cmVjdCB4PSItNTAiIHk9Ii01MCIgd2lkdGg9IjEwMSIgaGVpZ2h0PSIxMDEiIGZpbGw9InVybCgjZzgyNykiIC8+Cjwvc3ZnPg==);
+    background-repeat: repeat-x;
+    background-position: top center;
+    height: 320px;
+}
+.b {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #000;
+    font-family: consolas, monaco, menlo, courier, monospace;
+    border: 0;
+    line-height: normal;
+}
+
+.c {
+    text-align: center;
+    margin: auto;
+}
+
+.ib {
+    display: inline-block;
+}
+.circle {
+    height: 300px;
+    width: 300px;
+    border: 10px solid #333;
+    background-color: #ddd;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPgo8cmFkaWFsR3JhZGllbnQgaWQ9ImczNzMiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiBjeD0iNTAlIiBjeT0iNTAlIiByPSIyMDAlIj4KPHN0b3Agc3RvcC1jb2xvcj0iI0ZGRkZGRiIgb2Zmc2V0PSIwIi8+PHN0b3Agc3RvcC1jb2xvcj0iIzg4OCIgb2Zmc2V0PSIxIi8+CjwvcmFkaWFsR3JhZGllbnQ+CjxyZWN0IHg9Ii01MCIgeT0iLTUwIiB3aWR0aD0iMTAxIiBoZWlnaHQ9IjEwMSIgZmlsbD0idXJsKCNnMzczKSIgLz4KPC9zdmc+);
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    overflow: hidden;
+    display: none;
+    transition: border-radius 0.25s;
+}
+.n {
+    position: absolute;
+    width: 280px;
+    height: 22px;    
+    margin-top: 129px;
+    transform-origin: center center;
+    z-index: 2;
+}
+.br {
+    position: absolute;
+    margin-top: 80px;
+    margin-left: 85px;
+    font-size: 24px;
+    width: 100px;
+    color: #bbb;
+    text-shadow: 1px 1px 2px #fff;
+}
+.dn {
+    display: none;
+    margin-top: 10px;
+}
+.n:first-child {
+    transform: rotate(-60deg);
+}
+.n:first-child > .tn {
+    transform: rotate(60deg);
+}
+.n:nth-child(2) {
+    transform: rotate(-30deg);
+}
+.n:nth-child(2) > .tn {
+    transform: rotate(30deg);
+}
+.n:nth-child(3) {
+    transform: rotate(0);
+}
+.n:nth-child(3) > .tn {
+    transform: rotate(0deg);
+}
+.n:nth-child(4) {
+    transform: rotate(30deg);
+}
+.n:nth-child(4) > .tn {
+    transform: rotate(-30deg);
+}
+.n:nth-child(5) {
+    transform: rotate(60deg);
+}
+.n:nth-child(5) > .tn {
+    transform: rotate(-60deg);
+}
+.n:nth-child(6) {
+    transform: rotate(90deg);
+}
+.n:nth-child(6) > .tn {
+    transform: rotate(-90deg);
+}
+.tn {
+    float: right;
+    text-shadow: 1px 1px 2px #fff;
+    color: #888;
+    padding: 4px;
+    height: 22px;
+    width: 22px;
+    font-size: 12px;
+    border-radius: 50%;
+    transform-origin: center center;
+}
+.tn:first-of-type {
+    float: left;
+}
+.needle {
+    position: absolute;
+    height: 4px;
+    background: #333;
+    border-radius: 100% 5px 5px 100%;
+    width: 145px;
+    margin-top: 138px;
+    margin-left: 12px;
+    transform-origin: 128px 50%;
+    background: brown;
+    z-index: 5;
+}
+.medium {
+    height: 8px;
+    width: 120px;
+    margin-top: 136px;
+    margin-left: 37px;    
+    background: rosybrown;
+    z-index: 4;
+    transform-origin: 102px 50%;
+}
+.short {
+    height: 10px;
+    width: 100px;
+    margin-top: 136px;
+    margin-left: 57px;
+    background: #333;
+    transform-origin: 83px 50%;
+    z-index: 3;
+}
+.pivot {
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    border: 4px solid brown;
+    background: #fff;
+    position: relative;
+    float: right;
+    right: 10px;
+    top: -6px;
+    box-shadow: 0 0 4px #000 inset;
+}
+.circle:hover {
+    cursor: pointer;
+    border-radius: 50%;
+}
